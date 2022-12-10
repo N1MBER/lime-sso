@@ -2,6 +2,7 @@ import React from 'react';
 import { Text } from '@consta/uikit/Text';
 import { Button } from '@consta/uikit/Button';
 import { Form, Formik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import { cnMixAuth } from '##/mixs/MixAuth';
 import { cn } from '##/utils/bem';
 import './Login.css';
@@ -12,6 +13,20 @@ const cnLogin = cn('Login');
 
 export const Login = () => {
   const { initialValues, schema } = useForm();
+
+  const navigate = useNavigate();
+
+  const handleRecoveryClick: React.MouseEventHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigate('/recovery');
+  };
+
+  const handleRegistrationClick: React.MouseEventHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigate('/registration');
+  };
 
   return (
     <div
@@ -61,6 +76,7 @@ export const Login = () => {
                 weight="semibold"
                 as="a"
                 href="/recovery"
+                onClick={handleRecoveryClick}
               >
                 Забыли пароль?
               </Text>
@@ -76,7 +92,13 @@ export const Login = () => {
         weight="light"
       >
         Нет аккаунта?
-        <Text weight="semibold" as="a" view="link" href="registration">
+        <Text
+          weight="semibold"
+          as="a"
+          view="link"
+          href="/registration"
+          onClick={handleRegistrationClick}
+        >
           Зарегистрируйтесь
         </Text>
       </Text>
