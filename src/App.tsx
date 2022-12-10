@@ -1,5 +1,14 @@
 import React from 'react';
+import { Flex } from './components/Layout/Flex';
+import { GradientContainer } from './components/Layout/GradientContainer';
+import { ThemeProvider } from './components/ThemeProvider';
 
 export const App = () => {
-  return <div>kek</div>;
+  return (
+    <ThemeProvider>
+      <GradientContainer>
+        <Flex>Kek</Flex>
+      </GradientContainer>
+    </ThemeProvider>
+  );
 };

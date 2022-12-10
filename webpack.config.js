@@ -21,7 +21,7 @@ module.exports = {
   },
   devServer: {
     open: true,
-    port: 3000,
+    port: 3030,
     contentBase: ['./src', './public'],
     historyApiFallback: true,
     inline: true,
@@ -45,7 +45,6 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        exclude: '/node_modules/',
         use: [
           {
             loader: 'babel-loader',
@@ -59,6 +58,34 @@ module.exports = {
             },
           },
         ],
+        include: [path.resolve(__dirname, './src')],
+        resolve: {
+          alias: {
+            '##': path.resolve(__dirname, './src'),
+          },
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+              ],
+              plugins: ['@babel/plugin-transform-runtime'],
+            },
+          },
+        ],
+        exclude: [path.resolve(__dirname, './src')],
+        resolve: {
+          alias: {
+            '##': path.resolve(__dirname, '../../../src'),
+          },
+        },
       },
       {
         test: /\.svg$/,

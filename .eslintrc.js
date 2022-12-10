@@ -26,7 +26,9 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    'react/jsx-filename-extension': 'off',
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+    'react/require-extension': 'off',
+    'import/extensions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'import/no-extraneous-dependencies': [
       'warn',
