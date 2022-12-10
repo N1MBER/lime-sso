@@ -18,7 +18,7 @@ const getColorsVariables = (colors: string[]): Record<string, string> => {
 export const Gradient = (props: Props) => {
   const { colors = [], className } = props;
 
-  const gradient = useMemo(() => new StripeGradient(), []);
+  const gradient = useMemo(() => new StripeGradient(), [colors]);
 
   useEffect(() => {
     gradient.initGradient('#gradient-canvas');

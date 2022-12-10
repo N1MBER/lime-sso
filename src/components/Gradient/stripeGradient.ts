@@ -873,6 +873,7 @@ export class Gradient {
             .split('')
             .map((hexTemp) => hexTemp + hexTemp)
             .join('');
+          console.log(hexTemp);
           hex = `#${hexTemp}`;
         }
         return hex && `0x${hex.substr(1)}`;

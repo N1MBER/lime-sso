@@ -1,27 +1,30 @@
 import React from 'react';
 import { Modal } from '@consta/uikit/Modal';
+import { useAtom } from '@reatom/npm-react';
 import { Gradient } from '##/components/Gradient';
 import { PropsWithHTMLAttributes } from '##/types/PropsWithHTMLAttributes';
 import { cn } from '##/utils/bem';
 import './GradientContainer.css';
+import { ThemeName } from '##/assets/themes';
+import { themeAtom } from '##/atoms/theme';
 
 type Props = PropsWithHTMLAttributes<{}, HTMLDivElement>;
 
-const colors = [
-  'var(--color-control-bg-primary)',
-  'var(--color-control-typo-secondary-hover)',
-  'var(--color-bg-normal-custom)',
-  '#1c1d1f',
-];
-
 const cnGradientContainer = cn('GradientContainer');
+
+const themeColorsMap: Record<ThemeName, string[]> = {
+  ssoLight: ['#8264fc', '#ad56fa', '#f7f9fb', '#1c1d1f'],
+  ssoDark: ['#1c1d1f', '#f7f9fb', '#ad56fa', '#8264fc'],
+};
 
 export const GradientContainer = (props: Props) => {
   const { children, className } = props;
 
+  const [theme] = useAtom(themeAtom);
+
   return (
     <div className={cnGradientContainer(null, [className])}>
-      <Gradient colors={colors} />
+      <Gradient colors={themeColorsMap[theme.color.primary as ThemeName]} />
       <Modal
         isOpen
         hasOverlay={false}
