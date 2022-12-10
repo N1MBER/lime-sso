@@ -17,6 +17,7 @@
   }
 
   &-Root {
+    z-index: 2;
     padding: var(--space-s);
   }
 

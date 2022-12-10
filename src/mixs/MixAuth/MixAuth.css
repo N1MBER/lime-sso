@@ -1,15 +1,16 @@
 .MixAuth {
   --mix-auth-container-padding: calc(var(--space-2xl) + var(--space-s))
-  calc(var(--space-2xl) - var(--space-2xs))
-  calc(var(--space-2xl) - var(--space-2xs));
+    calc(var(--space-2xl) - var(--space-2xs))
+    calc(var(--space-2xl) - var(--space-2xs));
   position: relative;
-  background: var(--color-bg-default);
   box-sizing: border-box;
   padding: var(--mix-auth-container-padding);
+  background: var(--color-bg-default);
   border-radius: var(--space-l);
 
   &_withBottomContainer {
     padding: 0;
+
     & .MixAuth-Container {
       padding: var(--mix-auth-container-padding);
     }
