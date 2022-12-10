@@ -23,6 +23,6 @@
 
   &-Content {
     overflow: hidden;
-    border-radius: var(--space-s);
+    border-radius: var(--space-l);
   }
 }

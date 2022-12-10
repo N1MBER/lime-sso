@@ -5,7 +5,7 @@
   --color-bg-default: color(#fff a(100%)); /* Цвет дефолта */
   --color-bg-secondary: #f7f9fb; /* Цвет дефолта */
   --color-bg-brand: color(#0071b2 a(100%)); /* Цвет фона брендированый */
-  --color-bg-link: color(#0078d2 a(100%)); /* Цвет фона ссылки */
+  --color-bg-link: color(#ad56fa a(100%)); /* Цвет фона ссылки */
   --color-bg-border: color(#004269 l(-1) a(20%)); /* Цвет границ */
   --color-bg-stripe:
     color(
@@ -55,10 +55,10 @@
   --color-typo-link: #3f3da9; /* Цвет основной ссылки */
   --color-typo-link-minor:
     color(
-      #0078d2 s(-35%) l(-10%)
+      #ad56fa s(-35%) l(-10%)
     ); /* Цвет второстепенной ссылки */
 
-  --color-typo-link-hover: color(#0078d2 l(+8%)); /* Цвет ховера ссылки */
+  --color-typo-link-hover: color(#ad56fa l(+8%)); /* Цвет ховера ссылки */
 
   /* //////////////////////////////
   // Цвета скроллбара ////////////// */
@@ -85,27 +85,27 @@
 
   --color-control-bg-border-focus:
     color(
-      #0078d2 l(+9%)
+      #ad56fa l(+9%)
     ); /* Цвет аутлайна контролов при фокусе */ /* TODO заменить на правило целиком */
   --color-control-bg-focus:
     color(
-      #0078d2 a(30%)
+      #ad56fa a(30%)
     ); /* Цвет тени в состонии фокуса */
 
   --color-control-bg-active:
     color(
-      #0078d2 a(50%)
+      #ad56fa a(50%)
     ); /* Цвет тени в состонии нажатия  */
 
   /* Primary */
   --color-control-bg-primary:
     color(
-      #0078d2 a(100%)
+      #6d28fc (100%)
     ); /* Цвет фона активного контрола */
 
   --color-control-bg-primary-hover:
     color(
-      #0078d2 l(+9%)
+      #6d28fc l(+9%)
     ); /* Цвет фона активного контрола по ховеру */
 
   --color-control-typo-primary:
@@ -126,22 +126,22 @@
 
   --color-control-bg-border-secondary:
     color(
-      #0078d2 a(100%)
+      #ad56fa a(100%)
     ); /* Цвет фона бордеров котрола */
 
   --color-control-bg-border-secondary-hover:
     color(
-      #0078d2 l(+9%)
+      #ad56fa l(+9%)
     ); /* Цвет фона бордеров контрола по ховеру */
 
   --color-control-typo-secondary:
     color(
-      #0078d2 a(100%)
+      #ad56fa a(100%)
     ); /* Цвет второстепеного текста контрола */
 
   --color-control-typo-secondary-hover:
     color(
-      #0078d2 l(+9%)
+      #ad56fa l(+9%)
     ); /* Цвет акцентного текста */
 
   /* Ghost */

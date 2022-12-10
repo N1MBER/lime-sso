@@ -1,0 +1,99 @@
+.FormikInput {
+  --formik-input-state-color: var(--color-control-bg-border-default);
+
+  &-Star {
+    margin-left: var(--space-2xs);
+    color: var(--color-typo-alert);
+  }
+
+  &-Input {
+    width: 100%;
+
+    & .FieldCaption {
+      margin-top: calc(var(--space-xs) + var(--space-3xs));
+      margin-left: var(--space-m);
+      font-weight: var(--font-weight-text-semibold);
+    }
+
+    & .TextField-Icon {
+      color: var(--color-typo-ghost);
+    }
+  }
+
+  &_width {
+    &_full {
+      width: 100%;
+    }
+  }
+
+  &_state {
+    &_alert {
+      --formik-input-state-color: var(--color-bg-alert);
+    }
+  }
+
+  &-PhoneInput {
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    max-width: 100%;
+    height: 54px;
+    min-height: var(--control-height-m);
+    border: 1px solid var(--color-control-bg-border-default);
+    border-radius: var(--control-radius);
+    font-size: var(--control-text-size-m);
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+
+    &:hover {
+      border-color: var(--color-control-bg-border-default-hover);
+    }
+
+    & * {
+      font-family: var(--font-primary);
+      font-size: var(--input-font-size) !important;
+    }
+
+    &_state {
+      border-color: var(--formik-input-state-color);
+    }
+
+    & .flag-dropdown {
+      background: none !important;
+      border: none;
+      border-right: 1px solid var(--color-control-bg-border-default);
+    }
+
+    & .country-list {
+      background: var(--color-control-bg-default) !important;
+
+      & .highlight {
+        background: var(--color-bg-secondary) !important;
+      }
+    }
+
+    & .selected-flag {
+      background: var(--color-bg-secondary) !important;
+    }
+  }
+
+  &-PhoneFormControl {
+    width: 100% !important;
+    height: auto !important;
+    color: var(--color-control-typo-default);
+    background: var(--color-control-bg-default) !important;
+    border: none !important;
+    font-family: var(--font-primary);
+  }
+
+  &-Label {
+    margin: 0 0 var(--space-xs);
+  }
+
+  &-Description {
+    margin: 0 0 var(--space-xs);
+  }
+
+  &-Caption {
+    margin: var(--space-2xs) 0 0;
+  }
+}

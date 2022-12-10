@@ -1,0 +1,28 @@
+.Login {
+  position: relative;
+  width: 360px;
+  background-color: var(--color-bg-default);
+
+  &-Title {
+    margin-bottom: var(--space-m);
+  }
+
+  &-Container {
+    gap: var(--space-m);
+  }
+
+  &-Forgot {
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: -6px;
+    margin-bottom: var(--space-m);
+    padding: 0 var(--space-m);
+  }
+
+  &-Additional {
+    flex-direction: row;
+    gap: var(--space-xs);
+  }
+}

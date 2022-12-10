@@ -1,12 +1,32 @@
+/* stylelint-disable */
 .MixAuth {
-  --mix-auth-container-padding: calc(var(--space-2xl) + var(--space-s))
+  --mix-auth-container-padding:
+    calc(var(--space-2xl) + var(--space-s))
     calc(var(--space-2xl) - var(--space-2xs))
     calc(var(--space-2xl) - var(--space-2xs));
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
   box-sizing: border-box;
   padding: var(--mix-auth-container-padding);
   background: var(--color-bg-default);
-  border-radius: var(--space-l);
+
+  &-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+
+  & a {
+    text-decoration: none;
+  }
 
   &_withBottomContainer {
     padding: 0;
@@ -17,6 +37,13 @@
   }
 
   &-Additional {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--space-l);
     background: var(--color-bg-secondary);
   }
 

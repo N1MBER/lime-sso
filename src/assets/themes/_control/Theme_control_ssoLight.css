@@ -1,5 +1,5 @@
 .Theme_control_ssoLight {
-  --control-radius: 4px; /* Основной радиус скругления контроллов */
+  --control-radius: 8px; /* Основной радиус скругления контроллов */
   --control-border-width: 1px; /* Основная толщина контроллов */
   --control-height-l: var(--space-4xl);
   --control-height-m: var(--space-3xl);
