@@ -3,13 +3,8 @@
   /* //////////////////////////////
   // Цвета фонов /////////////// */
   --color-bg-default: color(#fff a(100%)); /* Цвет дефолта */
-  --color-bg-secondary: #F7F9FB; /* Цвет дефолта */
-
-  --color-bg-brand:
-    color(
-      #0071b2 a(100%)
-    ); /* Цвет фона брендированый */
-
+  --color-bg-secondary: #f7f9fb; /* Цвет дефолта */
+  --color-bg-brand: color(#0071b2 a(100%)); /* Цвет фона брендированый */
   --color-bg-link: color(#0078d2 a(100%)); /* Цвет фона ссылки */
   --color-bg-border: color(#004269 l(-1) a(20%)); /* Цвет границ */
   --color-bg-stripe:
@@ -17,11 +12,7 @@
       #004269 l(-11) a(5%)
     ); /* Цвет зебры (например, при окрашивании фона строк таблицы через одну) */
 
-  --color-bg-ghost:
-    color(
-      #004269 l(-11) a(8%)
-    ); /* Цвет затенения */
-
+  --color-bg-ghost: color(#004269 l(-11) a(8%)); /* Цвет затенения */
   --color-bg-tone: color(#004269 l(-11) a(85%)); /* Цвет паранджи */
   --color-bg-soft: color(#fff a(90%)); /* Цвет молока */
   --color-bg-system:
@@ -29,59 +20,26 @@
       #ced8de h(204) s(18) l(89) a(100%)
     ); /* Цвет фона системнный */
 
-  --color-bg-normal:
-    color(
-      #56b9f2 a(100%)
-    ); /* Цвет фона нейтральный */
-
+  --color-bg-normal: color(#56b9f2 a(100%)); /* Цвет фона нейтральный */
   --color-bg-success: color(#22c38e a(100%)); /* Цвет фона успеха */
-  --color-bg-caution:
-    color(
-      #f2c94c a(100%)
-    ); /* Цвет фона осторожности */
-
-  --color-bg-warning:
-    color(
-      #f38b00 a(100%)
-    ); /* Цвет фона предупреждения */
-
-  --color-bg-alert: color(#C6074C a(100%)); /* Цвет фона ошибки */
-  --color-bg-critical:
-    color(
-      #33000f a(100%)
-    ); /* Цвет фона системнный */
+  --color-bg-caution: color(#f2c94c a(100%)); /* Цвет фона осторожности */
+  --color-bg-warning: color(#f38b00 a(100%)); /* Цвет фона предупреждения */
+  --color-bg-alert: color(#c6074c a(100%)); /* Цвет фона ошибки */
+  --color-bg-critical: color(#33000f a(100%)); /* Цвет фона системнный */
 
   /* //////////////////////////////
   // Цвета текста ////////////// */
-  --color-typo-primary:
-    color(
-      #002033 a(100%)
-    ); /* Цвет основного текста */
-
-  --color-typo-secondary: #0A1129; /* Цвет второстепенного текста */
-
-  --color-typo-ghost: #788BAC; /* Цвет дополнительного текста */
-
-  --color-typo-brand:
-    color(
-      #0071b2 a(100%)
-    ); /* Цвет брендового текста */
-
+  --color-typo-primary: color(#002033 a(100%)); /* Цвет основного текста */
+  --color-typo-secondary: #0a1129; /* Цвет второстепенного текста */
+  --color-typo-ghost: #788bac; /* Цвет дополнительного текста */
+  --color-typo-brand: color(#0071b2 a(100%)); /* Цвет брендового текста */
   --color-typo-system:
     color(
       #ced8de h(204) s(28) l(68) a(100%)
     ); /* Цвет фона системнный */
 
-  --color-typo-normal:
-    color(
-      #56b9f2 s(+14) l(-4)
-    ); /* Цвет фона нейтральный */
-
-  --color-typo-success:
-    color(
-      #22c38e s(+20) l(-8)
-    ); /* Цвет текста успеха */
-
+  --color-typo-normal: color(#56b9f2 s(+14) l(-4)); /* Цвет фона нейтральный */
+  --color-typo-success: color(#22c38e s(+20) l(-8)); /* Цвет текста успеха */
   --color-typo-caution:
     color(
       #f2c94c s(+15) h(-8) l(-10)
@@ -92,26 +50,15 @@
       #f38b00 h(-4) s(-2) l(-2)
     ); /* Цвет текста предупреждения */
 
-  --color-typo-alert:
-    color(
-      #C6074C s(+3) l(-7)
-    ); /* Цвет текста ошибки */
-
-  --color-typo-critical:
-    color(
-      #33000f a(100%)
-    ); /* Цвет фона системнный */
-
-  --color-typo-link: #3F3DA9; /* Цвет основной ссылки */
+  --color-typo-alert: color(#c6074c s(+3) l(-7)); /* Цвет текста ошибки */
+  --color-typo-critical: color(#33000f a(100%)); /* Цвет фона системнный */
+  --color-typo-link: #3f3da9; /* Цвет основной ссылки */
   --color-typo-link-minor:
     color(
       #0078d2 s(-35%) l(-10%)
     ); /* Цвет второстепенной ссылки */
 
-  --color-typo-link-hover:
-    color(
-      #0078d2 l(+8%)
-    ); /* Цвет ховера ссылки */
+  --color-typo-link-hover: color(#0078d2 l(+8%)); /* Цвет ховера ссылки */
 
   /* //////////////////////////////
   // Цвета скроллбара ////////////// */
@@ -123,20 +70,14 @@
   // Цвета контролов /////////// */
 
   /* Default */
-  --color-control-bg-default:
-    color(
-      #fff
-    ); /* Цвет фона контрола */
-
+  --color-control-bg-default: color(#fff); /* Цвет фона контрола */
   --color-control-typo-default:
     color(
       #002033
     ); /* Цвет основного текста контрола */
 
-  --color-control-typo-placeholder:  #788BAC; /* Цвет плейсхолдера контрола */
-
-  --color-control-bg-border-default: #DAE4F5; /* Цвет фона бордеров котрола */
-
+  --color-control-typo-placeholder: #788bac; /* Цвет плейсхолдера контрола */
+  --color-control-bg-border-default: #dae4f5; /* Цвет фона бордеров котрола */
   --color-control-bg-border-default-hover:
     color(
       #004269 a(52%)
@@ -246,14 +187,13 @@
     ); /* Цвет акцентного текста */
 
   /* Disable */
-  --color-control-bg-disable: #DAE4F5; /* Цвет фона неактивного контрола */
-
+  --color-control-bg-disable: #dae4f5; /* Цвет фона неактивного контрола */
   --color-control-bg-border-disable:
     color(
       #004269 a(0%)
     ); /* Цвет фона бордеров неактивного контрола */
 
-  --color-control-typo-disable: #788BAC; /* Цвет основного текста неактивного контрола */
+  --color-control-typo-disable: #788bac; /* Цвет основного текста неактивного контрола */
 
   /* /////////////////////////////
   // Цвета тени /////////// */
