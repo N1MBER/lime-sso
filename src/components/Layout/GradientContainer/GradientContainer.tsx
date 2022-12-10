@@ -2,13 +2,12 @@ import React from 'react';
 import { Modal } from '@consta/uikit/Modal';
 import { useAtom } from '@reatom/npm-react';
 import { Gradient } from '##/components/Gradient';
-import { PropsWithHTMLAttributes } from '##/types/PropsWithHTMLAttributes';
 import { cn } from '##/utils/bem';
 import './GradientContainer.css';
 import { ThemeName } from '##/assets/themes';
 import { themeAtom } from '##/atoms/theme';
 
-type Props = PropsWithHTMLAttributes<{}, HTMLDivElement>;
+type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'css'>;
 
 const cnGradientContainer = cn('GradientContainer');
 
