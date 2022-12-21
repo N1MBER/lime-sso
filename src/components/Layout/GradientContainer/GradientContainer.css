@@ -15,6 +15,16 @@
     background: none;
     border-radius: var(--space-l);
   }
+  &-Language {
+    position: absolute;
+    z-index: 2;
+    top: var(--space-xl);
+    right: calc(var(--space-l) * 4);
+
+    & > .Button-Icon {
+      color: #fff;
+    }
+  }
 
   &-Toggler {
     position: absolute;
@@ -22,8 +32,8 @@
     top: var(--space-xl);
     right: var(--space-xl);
 
-    & .Icon {
-      color: #FFF;
+    & > .Button-Icon {
+      color: #fff;
     }
   }
 

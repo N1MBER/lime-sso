@@ -3,6 +3,7 @@ import { Text } from '@consta/uikit/Text';
 import { Button } from '@consta/uikit/Button';
 import { Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { cnMixAuth } from '##/mixs/MixAuth';
 import { cn } from '##/utils/bem';
 import './Login.css';
@@ -28,6 +29,8 @@ export const Login = () => {
     navigate('/registration');
   };
 
+  const { t } = useTranslation();
+
   return (
     <div
       className={cnLogin(null, [
@@ -52,21 +55,21 @@ export const Login = () => {
               weight="semibold"
               className={cnLogin('Title')}
             >
-              Вход
+              {t('login.title')}
             </Text>
             <FormikInput
               name="login"
               type="text"
               size="l"
               width="full"
-              placeholder="Логин"
+              placeholder={t('login.inputs.login.placeholder')?.toString()}
             />
             <FormikInput
               type="password"
               size="l"
               name="password"
               width="full"
-              placeholder="Пароль"
+              placeholder={t('login.inputs.password.placeholder')?.toString()}
             />
             <div className={cnLogin('Forgot')}>
               <Text
@@ -78,10 +81,15 @@ export const Login = () => {
                 href="/recovery"
                 onClick={handleRecoveryClick}
               >
-                Забыли пароль?
+                {t('login.forgot')?.toString()}
               </Text>
             </div>
-            <Button label="Войти" size="l" form="round" width="full" />
+            <Button
+              label={t('login.button')?.toString()}
+              size="l"
+              form="round"
+              width="full"
+            />
           </Form>
         )}
       </Formik>
@@ -91,7 +99,7 @@ export const Login = () => {
         lineHeight="s"
         weight="light"
       >
-        Нет аккаунта?
+        {t('login.no_account')}
         <Text
           weight="semibold"
           as="a"
@@ -99,7 +107,7 @@ export const Login = () => {
           href="/registration"
           onClick={handleRegistrationClick}
         >
-          Зарегистрируйтесь
+          {t('login.registration')}
         </Text>
       </Text>
     </div>

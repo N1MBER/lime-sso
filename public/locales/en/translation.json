@@ -1,0 +1,17 @@
+{
+    "login": {
+        "title": "Login",
+        "inputs": {
+            "login": {
+                "placeholder": "Login"
+            },
+            "password": {
+                "placeholder": "Password"
+            }
+        },
+        "button": "Sign in",
+        "forgot": "Forgot your password?",
+        "no_account": "No account",
+        "registration": "Sign Up"
+    }
+}

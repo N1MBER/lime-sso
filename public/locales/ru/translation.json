@@ -1,0 +1,17 @@
+{
+    "login": {
+        "title": "Вход",
+        "inputs": {
+            "login": {
+                "placeholder": "Логин"
+            },
+            "password": {
+                "placeholder": "Пароль"
+            }
+        },
+        "button": "Войти",
+        "forgot": "Забыли пароль?",
+        "no_account": "Нет аккаунта",
+        "registration": "Зарегестрируйтесь"
+    }
+}
