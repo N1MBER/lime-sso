@@ -1,11 +1,13 @@
 import React from 'react';
 import { Modal } from '@consta/uikit/Modal';
-import { useAtom } from '@reatom/npm-react';
+import { useAtom, useAction } from '@reatom/npm-react';
+import { ThemeToggler } from '@consta/uikit/ThemeToggler';
+import { ThemePreset } from '@consta/uikit/Theme';
 import { Gradient } from '##/components/Gradient';
 import { cn } from '##/utils/bem';
 import './GradientContainer.css';
 import { ThemeName } from '##/assets/themes';
-import { themeAtom } from '##/atoms/theme';
+import { getThemeIcon, getThemeKey, themeAtom, themes } from '##/atoms/theme';
 
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'css'>;
 
@@ -21,8 +23,22 @@ export const GradientContainer = (props: Props) => {
 
   const [theme] = useAtom(themeAtom);
 
+  const setTheme = useAction((ctx, props: { value: ThemePreset }) =>
+    themeAtom(ctx, props.value),
+  );
+
   return (
     <div className={cnGradientContainer(null, [className])}>
+      <ThemeToggler
+        className={cnGradientContainer('Toggler')}
+        getItemKey={getThemeKey}
+        getItemLabel={getThemeKey}
+        getItemIcon={getThemeIcon}
+        items={themes}
+        onChange={setTheme}
+        value={theme}
+        size="l"
+      />
       <Gradient colors={themeColorsMap[theme.color.primary as ThemeName]} />
       <Modal
         isOpen

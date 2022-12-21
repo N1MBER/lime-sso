@@ -13,7 +13,18 @@
     min-width: auto;
     max-height: 100%;
     background: none;
-    border-radius: 0 !important;
+    border-radius: var(--space-l);
+  }
+
+  &-Toggler {
+    position: absolute;
+    z-index: 2;
+    top: var(--space-xl);
+    right: var(--space-xl);
+
+    & .Icon {
+      color: #FFF;
+    }
   }
 
   &-Root {
