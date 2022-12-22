@@ -1,7 +1,7 @@
 .LanguageSelector {
-    &-Menu {
-        & .ContextMenuItem[data-content="active"] {
-            color: var(--color-control-typo-secondary);
-        }
+  &-Menu {
+    & .ContextMenuItem[data-content='active'] {
+      color: var(--color-control-typo-secondary);
     }
+  }
 }

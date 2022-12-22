@@ -15,6 +15,7 @@
     margin: var(--space-xl) 0;
 
     & a {
+      color: var(--color-typo-link);
       &:hover {
         text-decoration: underline;
       }
