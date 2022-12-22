@@ -173,7 +173,15 @@ const FormikInputRender = MemoWrapper(
       </Flex>
     );
   },
-  ['caption', 'leftSide', 'rightSide', 'label', 'type', 'disabled'],
+  [
+    'caption',
+    'leftSide',
+    'rightSide',
+    'label',
+    'type',
+    'disabled',
+    'placeholder',
+  ],
 );
 
 export const FormikInput = (props: IProps) => {

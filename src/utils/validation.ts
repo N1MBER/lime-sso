@@ -87,3 +87,28 @@ export const CONFIRM = (name = 'password') =>
   Yup.string()
     .required(validationMessages.required)
     .oneOf([Yup.ref(name), null], 'Пароли не совпадают');
+
+export const specialSymbolsRegex =
+  // eslint-disable-next-line
+  /[\+\\\×\÷\=\/\_\€\£\¥\₽\!\@\#\$\%\&\^\*\(\)\\'\:\;\,\?\`\~\\|\<\>\{\}\[\]\°\•\○\●\□\■\♤\♡\◇\♧\☆\▪︎\¤\《\》\¡\¿\.\±\§]/g;
+
+export const cyrillicRegex = /[а-яё]/i;
+export const latinRegex = /[a-z]/i;
+
+export const isUserInitialsValid = (val?: string) => {
+  if (!val) return false;
+
+  const hasCyrillic = cyrillicRegex.test(val);
+  const hasLatin = latinRegex.test(val);
+  if (hasCyrillic && hasLatin) return false;
+
+  const words = val.trim().split(/\s+/).filter(Boolean);
+
+  if (words.length < 2) return false;
+
+  for (const str of words) {
+    if (!/^[-a-zа-яё]+$/i.test(str)) return false;
+  }
+
+  return true;
+};

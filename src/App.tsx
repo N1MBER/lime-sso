@@ -1,10 +1,10 @@
 import React from 'react';
 import { reatomContext } from '@reatom/npm-react';
 import { BrowserRouter } from 'react-router-dom';
-import { GradientContainer } from './components/Layout/GradientContainer';
-import { ThemeProvider } from './components/ThemeProvider';
+import { GradientContainer } from '##/components/Layout/GradientContainer';
+import { ThemeProvider } from '##/components/ThemeProvider';
 import { ctx } from '##/atoms/app';
-import { Login } from './pages/Login/Login';
+import { AppRouter } from '##/components/AppRouter';
 import './i18n';
 
 export const App = () => {
@@ -13,7 +13,7 @@ export const App = () => {
       <BrowserRouter>
         <ThemeProvider>
           <GradientContainer>
-            <Login />
+            <AppRouter />
           </GradientContainer>
         </ThemeProvider>
       </BrowserRouter>

@@ -1,17 +1,69 @@
 {
+  "login": {
+    "title": "Sign In",
+    "inputs": {
+      "login": {
+        "placeholder": "Login"
+      },
+      "password": {
+        "placeholder": "Password"
+      }
+    },
+    "button": "Sign in",
+    "forgot": "Forgot your password?",
+    "no_account": "No account",
+    "registration": "Sign Up"
+  },
+  "registration": {
+    "title": "Sign Up",
+    "inputs": {
+      "login": {
+        "placeholder": "Your login",
+        "label": "Login"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Your email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Your password"
+      },
+      "re_password": {
+        "placeholder": "Repeat your password",
+        "label": "Repeat your password"
+      },
+      "sponsor": {
+        "label": "Partner code",
+        "placeholder": "Your code"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      }
+    },
+    "button": "Sign Up",
+    "confirm": "I agree to the processing of personal data in accordance with the terms",
+    "has_account": "Have an account?",
+    "rules": "Platform Policies",
+    "agreement": "User Agreement",
+    "sign_in": "Sign In"
+  },
+  "errors": {
     "login": {
-        "title": "Login",
-        "inputs": {
-            "login": {
-                "placeholder": "Login"
-            },
-            "password": {
-                "placeholder": "Password"
-            }
-        },
-        "button": "Sign in",
-        "forgot": "Forgot your password?",
-        "no_account": "No account",
-        "registration": "Sign Up"
-    }
+        "mask": "The login must contain only numbers and Latin letters"
+    },
+    "password": {
+      "mask": "The password must contain at least one digit, one uppercase letter and one lowercase letter!",
+      "min": "Minimum 8 characters!",
+      "max": "Maximum 30 characters!",
+      "username_exists_error": "The password should not contain a login"
+    },
+    "media_sponsor": "Invalid code format!",
+    "name": "ФИО должно содержать минимум 2 слова и не может содержать в себе симфолы, цифры или логин"
+  },
+  "other": {
+    "and": "and",
+    "or": "or"
+  }
 }
