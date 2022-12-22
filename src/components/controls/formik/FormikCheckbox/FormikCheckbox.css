@@ -3,7 +3,7 @@
 
   &_error {
     background: rgba(235, 87, 87, 0.3);
-    border-radius: var(--control-radius);
     border-color: var(--color-bg-alert);
+    border-radius: var(--control-radius);
   }
 }

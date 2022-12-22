@@ -1,12 +1,12 @@
 .GradientContainer {
   position: relative;
-  margin-bottom: 65px;
-  padding: 135px 0 60px;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 
   @media screen and (max-width: 800px) {
     margin-bottom: 0;
-    padding: 100px 0 60px;
-    padding-bottom: 0;
   }
 
   &-Modal {
@@ -14,38 +14,64 @@
     max-width: 700px;
     max-height: 100%;
     background: none;
+    overflow: overlay;
     border-radius: var(--space-l);
   }
 
   &-Language {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     top: var(--space-xl);
     right: calc(var(--space-l) * 4);
 
     & > .Button-Icon {
       color: #fff;
     }
+
+    @media screen and (max-width: 800px) {
+      top: calc(var(--space-l) * 3);
+      right: var(--space-xl);
+      & > .Button-Icon {
+        color: var(--color-typo-primary);
+      }
+    }
   }
 
   &-Toggler {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     top: var(--space-xl);
     right: var(--space-xl);
 
     & > .Button-Icon {
       color: #fff;
     }
+
+    @media screen and (max-width: 800px) {
+      & > .Button-Icon {
+        color: var(--color-typo-primary);
+      }
+    }
+  }
+
+  &-Gradient {
+    position: sticky;
   }
 
   &-Root {
     z-index: 2;
-    padding: var(--space-s);
+    margin: var(--space-l);
+
+    @media screen and (max-width: 800px) {
+      max-width: 100vw;
+      box-sizing: border-box;
+      max-height: 100vh;
+    }
   }
 
   &-Content {
     overflow: hidden;
+    position: relative;
     border-radius: var(--space-l);
   }
 }

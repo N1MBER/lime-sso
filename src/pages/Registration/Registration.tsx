@@ -6,6 +6,7 @@ import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Button } from '@consta/uikit/Button';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { useBreakpoints } from '@consta/uikit/useBreakpoints';
 import { cnMixAuth } from '##/mixs/MixAuth';
 import { FormikCheckbox } from '##/components/controls/formik/FormikCheckbox';
 import { FormikInput } from '##/components/controls/formik/FormikInput';
@@ -18,6 +19,8 @@ export const Registration = () => {
   const { initialValues, schema } = useForm();
 
   const { t } = useTranslation();
+
+  const { isTablet } = useBreakpoints({ isTablet: 700 });
 
   const navigate = useNavigate();
 
@@ -59,7 +62,12 @@ export const Registration = () => {
             >
               {t('registration.title')}
             </Text>
-            <Grid cols={2} rowGap="m" colGap="l">
+            <Grid
+              cols={isTablet ? 2 : 1}
+              rowGap="m"
+              colGap="l"
+              className={cnRegistration('Grid')}
+            >
               <GridItem col={1} row={1}>
                 <FormikInput
                   name="login"

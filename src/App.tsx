@@ -6,6 +6,7 @@ import { ThemeProvider } from '##/components/ThemeProvider';
 import { ctx } from '##/atoms/app';
 import { AppRouter } from '##/components/AppRouter';
 import './i18n';
+import './App.css';
 
 export const App = () => {
   return (

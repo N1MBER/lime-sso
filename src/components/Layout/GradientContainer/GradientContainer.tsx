@@ -7,6 +7,7 @@ import { Button } from '@consta/uikit/Button';
 import { IconType } from '@consta/icons/IconType';
 import { useFlag } from '@consta/uikit/useFlag';
 import { ContextMenu } from '@consta/uikit/ContextMenu';
+import { useBreakpoints } from '@consta/uikit/useBreakpoints';
 import i18n from 'i18next';
 import { Gradient } from '##/components/Gradient';
 import { cn } from '##/utils/bem';
@@ -27,6 +28,8 @@ export const GradientContainer = (props: Props) => {
   const [theme] = useAtom(themeAtom);
   const [language] = useAtom(languageAtom);
 
+  const { isDesktop } = useBreakpoints({ isDesktop: 800 });
+
   const [showMenu, setShowMenu] = useFlag();
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -43,8 +46,8 @@ export const GradientContainer = (props: Props) => {
     setLanguage(language);
   };
 
-  return (
-    <div className={cnGradientContainer(null, [className])}>
+  const renderControls = () => (
+    <>
       <ThemeToggler
         className={cnGradientContainer('Toggler')}
         getItemKey={getThemeKey}
@@ -53,10 +56,10 @@ export const GradientContainer = (props: Props) => {
         items={themes}
         onChange={setTheme}
         value={theme}
-        size="l"
+        size={isDesktop ? 'l' : 's'}
       />
       <Button
-        size="l"
+        size={isDesktop ? 'l' : 's'}
         iconLeft={IconType}
         onlyIcon
         ref={buttonRef}
@@ -69,18 +72,31 @@ export const GradientContainer = (props: Props) => {
         onClickOutside={setShowMenu.off}
         anchorRef={buttonRef}
         items={languages}
+        size={isDesktop ? 'l' : 's'}
         style={{ zIndex: 3 }}
         getItemKey={(item) => item.label}
         getItemOnClick={(item) => () => handleChangeLanguage(item.language)}
       />
-      <Gradient colors={themeColorsMap[theme.color.primary as ThemeName]} />
+    </>
+  );
+
+  return (
+    <div className={cnGradientContainer(null, [className])}>
+      {isDesktop && renderControls()}
+      <Gradient
+        colors={themeColorsMap[theme.color.primary as ThemeName]}
+        className={cnGradientContainer('Gradient')}
+      />
       <Modal
         isOpen
         hasOverlay={false}
         className={cnGradientContainer('Modal')}
         rootClassName={cnGradientContainer('Root')}
       >
-        <div className={cnGradientContainer('Content')}>{children}</div>
+        <div className={cnGradientContainer('Content')}>
+          {!isDesktop && renderControls()}
+          {children}
+        </div>
       </Modal>
     </div>
   );
