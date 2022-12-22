@@ -2,6 +2,7 @@ import { RouteObject } from 'react-router-dom';
 import React from 'react';
 import { Login } from '##/pages/Login/Login';
 import { Registration } from '##/pages/Registration/Registration';
+import { Recovery } from '##/pages/Recovery/Recovery';
 
 export const appRoutes = (): RouteObject[] => [
   {
@@ -15,5 +16,9 @@ export const appRoutes = (): RouteObject[] => [
   {
     path: '/registration',
     element: <Registration />,
+  },
+  {
+    path: '/recovery',
+    element: <Recovery />,
   },
 ];

@@ -169,6 +169,7 @@ export const Registration = () => {
             <Button
               size="l"
               width="full"
+              type="submit"
               label={t('registration.button')?.toString()}
             />
           </Form>

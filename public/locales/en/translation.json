@@ -49,6 +49,16 @@
     "agreement": "User Agreement",
     "sign_in": "Sign In"
   },
+  "recovery": {
+    "title": "Password recovery",
+    "inputs": {
+      "email": {
+        "placeholder": "Enter your email"
+      }
+    },
+    "button": "Reset the password",
+    "sign_in": "Sign In"
+  },
   "errors": {
     "login": {
         "mask": "The login must contain only numbers and Latin letters"

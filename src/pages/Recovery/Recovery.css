@@ -1,0 +1,25 @@
+.Recovery {
+  position: relative;
+  width: 360px;
+  background-color: var(--color-bg-default);
+
+  &-Title {
+    margin-bottom: var(--space-m);
+  }
+
+  &-Container {
+    gap: var(--space-m);
+  }
+
+  &-Additional {
+    flex-direction: row;
+    min-height: calc(var(--space-2xl) * 2);
+    color: var(--color-typo-link);
+    border-radius: 0;
+    gap: var(--space-xs);
+
+    &:hover {
+      color: var(--color-typo-link-hover);
+    }
+  }
+}
