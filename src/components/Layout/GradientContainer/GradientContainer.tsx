@@ -15,8 +15,13 @@ import { ThemeName } from '##/assets/themes';
 import { getThemeIcon, getThemeKey, themeAtom, themes } from '##/atoms/theme';
 import { Language } from '##/types/common';
 import { languageAtom } from '##/atoms/language';
-import { languages, themeColorsMap } from './helper';
 import { Flex } from '../Flex';
+import { LanguageSelector } from '##/components/LanguageSelector/LanguageSelector';
+
+export const themeColorsMap: Record<ThemeName, string[]> = {
+  ssoLight: ['#8264fc', '#ad56fa', '#f7f9fb', '#1c1d1f'],
+  ssoDark: ['#1c1d1f', '#f7f9fb', '#ad56fa', '#8264fc'],
+};
 
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'css'>;
 
@@ -47,6 +52,7 @@ export const GradientContainer = (props: Props) => {
       justify="flex-end"
       className={cnGradientContainer('Controls')}
     >
+      <LanguageSelector />
       <ThemeToggler
         className={cnGradientContainer('Toggler')}
         getItemKey={getThemeKey}
@@ -56,25 +62,6 @@ export const GradientContainer = (props: Props) => {
         onChange={setTheme}
         value={theme}
         size={isDesktop ? 'l' : 's'}
-      />
-      <Button
-        size={isDesktop ? 'l' : 's'}
-        iconLeft={IconType}
-        onlyIcon
-        ref={buttonRef}
-        onClick={setShowMenu.on}
-        view="clear"
-        className={cnGradientContainer('Language')}
-      />
-      <ContextMenu
-        isOpen={showMenu}
-        onClickOutside={setShowMenu.off}
-        anchorRef={buttonRef}
-        items={languages}
-        size={isDesktop ? 'l' : 's'}
-        style={{ zIndex: 3 }}
-        getItemKey={(item) => item.label}
-        getItemOnClick={(item) => () => setLanguage(item.language)}
       />
     </Flex>
   );

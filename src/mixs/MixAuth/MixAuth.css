@@ -1,6 +1,7 @@
 /* stylelint-disable */
 .MixAuth {
-  --mix-auth-container-padding: calc(var(--space-2xl) + var(--space-s))
+  --mix-auth-container-padding:
+    calc(var(--space-2xl) + var(--space-s))
     calc(var(--space-2xl) - var(--space-2xs))
     calc(var(--space-2xl) - var(--space-2xs));
   position: relative;
@@ -14,7 +15,8 @@
   background: var(--color-bg-default);
 
   @media screen and (max-width: 800px) {
-    --mix-auth-container-padding: var(--space-s)
+    --mix-auth-container-padding:
+      var(--space-s)
       calc(var(--space-2xl) - var(--space-2xs))
       calc(var(--space-2xl) - var(--space-2xs));
   }

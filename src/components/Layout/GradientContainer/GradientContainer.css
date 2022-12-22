@@ -33,6 +33,7 @@
       top: auto;
       right: auto;
       padding: var(--space-m) calc(var(--space-2xl) - var(--space-2xs)) 0;
+
       & .Button-Icon {
         color: var(--color-typo-primary);
       }
@@ -57,7 +58,7 @@
   &-Content {
     position: relative;
     overflow: hidden;
-    border-radius: var(--space-l);
     background: var(--color-bg-default);
+    border-radius: var(--space-l);
   }
 }
