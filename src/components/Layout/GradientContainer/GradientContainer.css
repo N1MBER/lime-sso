@@ -18,38 +18,22 @@
     border-radius: var(--space-l);
   }
 
-  &-Language {
-    position: absolute;
-    z-index: 3;
-    top: var(--space-xl);
-    right: calc(var(--space-l) * 4);
-
-    & > .Button-Icon {
-      color: #fff;
-    }
-
-    @media screen and (max-width: 800px) {
-      top: calc(var(--space-l) * 3);
-      right: var(--space-xl);
-
-      & > .Button-Icon {
-        color: var(--color-typo-primary);
-      }
-    }
-  }
-
-  &-Toggler {
+  &-Controls {
     position: absolute;
     z-index: 3;
     top: var(--space-xl);
     right: var(--space-xl);
 
-    & > .Button-Icon {
+    & .Button-Icon {
       color: #fff;
     }
 
     @media screen and (max-width: 800px) {
-      & > .Button-Icon {
+      position: relative;
+      top: auto;
+      right: auto;
+      padding: var(--space-m) calc(var(--space-2xl) - var(--space-2xs)) 0;
+      & .Button-Icon {
         color: var(--color-typo-primary);
       }
     }
@@ -74,5 +58,6 @@
     position: relative;
     overflow: hidden;
     border-radius: var(--space-l);
+    background: var(--color-bg-default);
   }
 }

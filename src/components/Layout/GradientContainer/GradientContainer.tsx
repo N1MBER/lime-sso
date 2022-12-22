@@ -16,6 +16,7 @@ import { getThemeIcon, getThemeKey, themeAtom, themes } from '##/atoms/theme';
 import { Language } from '##/types/common';
 import { languageAtom } from '##/atoms/language';
 import { languages, themeColorsMap } from './helper';
+import { Flex } from '../Flex';
 
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, 'css'>;
 
@@ -41,7 +42,11 @@ export const GradientContainer = (props: Props) => {
   );
 
   const renderControls = () => (
-    <>
+    <Flex
+      gap="var(--space-m)"
+      justify="flex-end"
+      className={cnGradientContainer('Controls')}
+    >
       <ThemeToggler
         className={cnGradientContainer('Toggler')}
         getItemKey={getThemeKey}
@@ -71,7 +76,7 @@ export const GradientContainer = (props: Props) => {
         getItemKey={(item) => item.label}
         getItemOnClick={(item) => () => setLanguage(item.language)}
       />
-    </>
+    </Flex>
   );
 
   return (
