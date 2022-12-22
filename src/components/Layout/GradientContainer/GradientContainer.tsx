@@ -8,7 +8,6 @@ import { IconType } from '@consta/icons/IconType';
 import { useFlag } from '@consta/uikit/useFlag';
 import { ContextMenu } from '@consta/uikit/ContextMenu';
 import { useBreakpoints } from '@consta/uikit/useBreakpoints';
-import i18n from 'i18next';
 import { Gradient } from '##/components/Gradient';
 import { cn } from '##/utils/bem';
 import './GradientContainer.css';
@@ -41,11 +40,6 @@ export const GradientContainer = (props: Props) => {
     languageAtom(ctx, value),
   );
 
-  const handleChangeLanguage = async (language: Language) => {
-    await i18n.changeLanguage(language);
-    setLanguage(language);
-  };
-
   const renderControls = () => (
     <>
       <ThemeToggler
@@ -75,7 +69,7 @@ export const GradientContainer = (props: Props) => {
         size={isDesktop ? 'l' : 's'}
         style={{ zIndex: 3 }}
         getItemKey={(item) => item.label}
-        getItemOnClick={(item) => () => handleChangeLanguage(item.language)}
+        getItemOnClick={(item) => () => setLanguage(item.language)}
       />
     </>
   );
