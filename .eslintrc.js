@@ -30,12 +30,7 @@ module.exports = {
     'react/require-extension': 'off',
     'import/extensions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    'import/no-extraneous-dependencies': [
-      'warn',
-      {
-        packageDir: './',
-      },
-    ],
+    'import/no-extraneous-dependencies': 'off',
     'linebreak-style': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
@@ -43,6 +38,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'import/no-cycle': 'off',
     'no-console': 'off',
+    'eslint-extraneous-dependens': 'off',
     'no-shadow': 'off',
     'no-prototype-builtins': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
