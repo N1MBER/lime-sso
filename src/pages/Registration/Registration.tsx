@@ -12,6 +12,7 @@ import { FormikCheckbox } from '##/components/controls/formik/FormikCheckbox';
 import { FormikInput } from '##/components/controls/formik/FormikInput';
 import { useForm } from './hooks/useForm';
 import { cn } from '##/utils/bem';
+import { useRequest } from './hooks/useRequest';
 
 const cnRegistration = cn('Registration');
 
@@ -21,6 +22,8 @@ export const Registration = () => {
   const { t } = useTranslation();
 
   const { isTablet } = useBreakpoints({ isTablet: 700 });
+
+  const { isLoading, onSubmit } = useRequest();
 
   const navigate = useNavigate();
 
@@ -46,7 +49,7 @@ export const Registration = () => {
         validateOnBlur={false}
         validateOnChange={false}
         validateOnMount={false}
-        onSubmit={() => {}}
+        onSubmit={(values) => onSubmit(values)}
       >
         {() => (
           <Form
@@ -70,10 +73,11 @@ export const Registration = () => {
             >
               <GridItem col={1} row={1}>
                 <FormikInput
-                  name="login"
+                  name="username"
                   type="text"
                   required
                   size="l"
+                  disabled={isLoading}
                   width="full"
                   placeholder={t(
                     'registration.inputs.login.placeholder',
@@ -87,6 +91,7 @@ export const Registration = () => {
                   type="text"
                   required
                   size="l"
+                  disabled={isLoading}
                   width="full"
                   placeholder={t(
                     'registration.inputs.email.placeholder',
@@ -99,7 +104,9 @@ export const Registration = () => {
                   name="password"
                   type="password"
                   required
+                  autoComplete="new-password"
                   size="l"
+                  disabled={isLoading}
                   width="full"
                   placeholder={t(
                     'registration.inputs.password.placeholder',
@@ -112,6 +119,8 @@ export const Registration = () => {
                   name="re_password"
                   type="password"
                   required
+                  disabled={isLoading}
+                  autoComplete="new-password"
                   size="l"
                   width="full"
                   placeholder={t(
@@ -123,15 +132,16 @@ export const Registration = () => {
               <div className={cnRegistration('GridDivider')} />
               <GridItem col={1} row={1}>
                 <FormikInput
-                  name="media_sponsor"
-                  type="text"
+                  name="phone"
+                  type="phone"
                   required
                   size="l"
                   width="full"
+                  disabled={isLoading}
                   placeholder={t(
-                    'registration.inputs.sponsor.placeholder',
+                    'registration.inputs.phone.placeholder',
                   )?.toString()}
-                  label={t('registration.inputs.sponsor.label')?.toString()}
+                  label={t('registration.inputs.phone.label')?.toString()}
                 />
               </GridItem>
               <GridItem col={1} row={1}>
@@ -144,6 +154,7 @@ export const Registration = () => {
                   label={t('registration.inputs.name.label')?.toString()}
                   required
                   size="l"
+                  disabled={isLoading}
                   width="full"
                 />
               </GridItem>
@@ -151,6 +162,7 @@ export const Registration = () => {
             <FormikCheckbox
               name="user_agreement"
               size="m"
+              disabled={isLoading}
               className={cnRegistration('Agreement')}
               // @ts-ignore
               label={
@@ -169,6 +181,7 @@ export const Registration = () => {
             <Button
               size="l"
               width="full"
+              loading={isLoading}
               type="submit"
               label={t('registration.button')?.toString()}
             />

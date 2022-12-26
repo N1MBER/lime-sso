@@ -3,18 +3,12 @@ import { Modal } from '@consta/uikit/Modal';
 import { useAtom, useAction } from '@reatom/npm-react';
 import { ThemeToggler } from '@consta/uikit/ThemeToggler';
 import { ThemePreset } from '@consta/uikit/Theme';
-import { Button } from '@consta/uikit/Button';
-import { IconType } from '@consta/icons/IconType';
-import { useFlag } from '@consta/uikit/useFlag';
-import { ContextMenu } from '@consta/uikit/ContextMenu';
 import { useBreakpoints } from '@consta/uikit/useBreakpoints';
 import { Gradient } from '##/components/Gradient';
 import { cn } from '##/utils/bem';
 import './GradientContainer.css';
 import { ThemeName } from '##/assets/themes';
 import { getThemeIcon, getThemeKey, themeAtom, themes } from '##/atoms/theme';
-import { Language } from '##/types/common';
-import { languageAtom } from '##/atoms/language';
 import { Flex } from '../Flex';
 import { LanguageSelector } from '##/components/LanguageSelector/LanguageSelector';
 
@@ -31,19 +25,11 @@ export const GradientContainer = (props: Props) => {
   const { children, className } = props;
 
   const [theme] = useAtom(themeAtom);
-  const [language] = useAtom(languageAtom);
 
   const { isDesktop } = useBreakpoints({ isDesktop: 800 });
 
-  const [showMenu, setShowMenu] = useFlag();
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  const setTheme = useAction((ctx, props: { value: ThemePreset }) =>
-    themeAtom(ctx, props.value),
-  );
-
-  const setLanguage = useAction((ctx, value: Language) =>
-    languageAtom(ctx, value),
+  const setTheme = useAction((ctx, { value }: { value: ThemePreset }) =>
+    themeAtom(ctx, value),
   );
 
   const renderControls = () => (

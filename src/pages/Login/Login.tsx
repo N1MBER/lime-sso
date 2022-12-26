@@ -9,6 +9,7 @@ import { cn } from '##/utils/bem';
 import './Login.css';
 import { FormikInput } from '##/components/controls/formik/FormikInput';
 import { useForm } from './hooks/useForm';
+import { useRequest } from './hooks/useRequest';
 
 const cnLogin = cn('Login');
 
@@ -16,6 +17,8 @@ export const Login = () => {
   const { initialValues, schema } = useForm();
 
   const navigate = useNavigate();
+
+  const { isLoading, onSubmit } = useRequest();
 
   const handleRecoveryClick: React.MouseEventHandler = (e) => {
     e.preventDefault();
@@ -39,8 +42,8 @@ export const Login = () => {
     >
       <Formik
         initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={() => {}}
+        // validationSchema={schema}
+        onSubmit={(values) => onSubmit(values)}
         validateOnBlur={false}
         validateOnChange={false}
         validateOnMount={false}
@@ -58,9 +61,10 @@ export const Login = () => {
               {t('login.title')}
             </Text>
             <FormikInput
-              name="login"
+              name="username"
               type="text"
               size="l"
+              disabled={isLoading}
               width="full"
               placeholder={t('login.inputs.login.placeholder')?.toString()}
             />
@@ -68,6 +72,8 @@ export const Login = () => {
               type="password"
               size="l"
               name="password"
+              disabled={isLoading}
+              autoComplete="current-password"
               width="full"
               placeholder={t('login.inputs.password.placeholder')?.toString()}
             />
@@ -87,6 +93,8 @@ export const Login = () => {
             <Button
               label={t('login.button')?.toString()}
               size="l"
+              loading={isLoading}
+              type="submit"
               form="round"
               width="full"
             />

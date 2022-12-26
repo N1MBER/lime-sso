@@ -156,8 +156,8 @@ const FormikInputRender = MemoWrapper(
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             onBlur={(e) => {
-              handleChange({ value: value.trim() });
-              onBlur && onBlur(e);
+              handleChange({ value: value?.trim() });
+              onBlur?.(e);
             }}
             id={uuid()}
             {...field}

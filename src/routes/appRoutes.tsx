@@ -10,7 +10,7 @@ export const appRoutes = (): RouteObject[] => [
     element: <Login />,
   },
   {
-    path: '/login',
+    path: '/login/:uuid',
     element: <Login />,
   },
   {

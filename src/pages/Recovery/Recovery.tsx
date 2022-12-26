@@ -9,6 +9,7 @@ import { cn } from '##/utils/bem';
 import { cnMixAuth } from '##/mixs/MixAuth';
 import { FormikInput } from '##/components/controls/formik/FormikInput';
 import { useForm } from './hooks/useForm';
+import { useRequest } from './hooks/useRequest';
 
 const cnRecovery = cn('Recovery');
 
@@ -18,6 +19,7 @@ export const Recovery = () => {
   const navigate = useNavigate();
 
   const { initialValues, schema } = useForm();
+  const { isLoading, onSubmit } = useRequest();
 
   const handleNavigate = (e: React.MouseEvent, path: string) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ export const Recovery = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
-        onSubmit={() => {}}
+        onSubmit={(values) => onSubmit(values.email ?? '')}
         validateOnBlur={false}
         validateOnChange={false}
         validateOnMount={false}
@@ -59,6 +61,7 @@ export const Recovery = () => {
             <FormikInput
               name="email"
               type="email"
+              disabled={isLoading}
               size="l"
               width="full"
               placeholder={t('recovery.inputs.email.placeholder')?.toString()}
@@ -67,6 +70,7 @@ export const Recovery = () => {
               size="l"
               width="full"
               type="submit"
+              loading={isLoading}
               label={t('recovery.button')?.toString()}
             />
           </Form>

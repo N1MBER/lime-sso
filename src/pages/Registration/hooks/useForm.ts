@@ -4,27 +4,30 @@ import {
   CONFIRM,
   EMAIL,
   isUserInitialsValid,
+  PHONE,
   REGEXP_TEST,
   REQUIRED,
   REQUIRED_CHECKBOX,
 } from '##/utils/validation';
 
 export type FormValues = {
-  login: string | null;
+  username: string | null;
   email: string | null;
   password: string | null;
   re_password: string | null;
   name: string | null;
+  phone: string | null;
   user_agreement: boolean;
   media_sponsor: string | null;
 };
 
 export const useForm = () => {
   const initialValues: FormValues = {
-    login: null,
+    username: null,
     email: null,
     password: null,
     re_password: null,
+    phone: null,
     user_agreement: false,
     media_sponsor: null,
     name: null,
@@ -33,7 +36,7 @@ export const useForm = () => {
   const { t } = useTranslation();
 
   const schema = Yup.object().shape({
-    login: REGEXP_TEST(
+    username: REGEXP_TEST(
       'login',
       /^([a-zA-Z0-9\-\\.]+)$/,
       t('errors.login.mask'),
@@ -59,13 +62,14 @@ export const useForm = () => {
         [Yup.ref('username')],
         t('errors.password.username_exists_error')?.toString(),
       ),
+    phone: PHONE,
     re_password: CONFIRM(),
-    media_sponsor: Yup.lazy((value) => {
-      if (value && value.trim().length > 0) {
-        return Yup.string().length(40, t('errors.media_sponsor')?.toString());
-      }
-      return Yup.string().trim().length(0);
-    }),
+    // media_sponsor: Yup.lazy((value) => {
+    //   if (value && value.trim().length > 0) {
+    //     return Yup.string().length(40, t('errors.media_sponsor')?.toString());
+    //   }
+    //   return Yup.string().trim().length(0);
+    // }),
     user_agreement: REQUIRED_CHECKBOX('user_agreement'),
     name: REQUIRED.test(
       'name',

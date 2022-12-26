@@ -2,13 +2,13 @@ import * as Yup from 'yup';
 import { STRING_LENGTH, validationMessages } from '##/utils/validation';
 
 export type FormValues = {
-  login: string | null;
+  username: string | null;
   password: string | null;
 };
 
 export const useForm = () => {
   const initialValues: FormValues = {
-    login: null,
+    username: null,
     password: null,
   };
 

@@ -40,6 +40,10 @@
       "name": {
         "label": "Name",
         "placeholder": "Your name"
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "Your phone number"
       }
     },
     "button": "Sign Up",

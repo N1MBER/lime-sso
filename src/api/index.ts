@@ -1,23 +1,13 @@
 import Axios, { AxiosError } from 'axios';
-import Cookies from 'js-cookie';
 import { DOMAIN } from '##/utils/env';
 
 export const instance = Axios.create({
   baseURL: `${DOMAIN}`,
   headers: {
     'Content-Type': 'application/json',
-    'Global-Currency': Cookies.get('user_preffered_currency'),
   },
   withCredentials: true,
 });
-
-export const p2p = Axios.create({
-  baseURL: process.env.REACT_APP_LIMEP2P_API,
-});
-
-export const setP2PAuthToken = (token: string) => {
-  p2p.defaults.headers.Authorization = `Bearer ${token}`;
-};
 
 export const setAuthToken = (token: string) => {
   instance.defaults.headers.Authorization = `Bearer ${token}`;
@@ -25,7 +15,6 @@ export const setAuthToken = (token: string) => {
 
 export const deleteAuthHeader = () => {
   delete instance.defaults.headers?.Authorization;
-  delete p2p.defaults.headers?.Authorization;
 };
 
 instance.interceptors.response.use(

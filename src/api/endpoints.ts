@@ -8,7 +8,7 @@ export default {
       action: IaaAction,
       id: string,
       derivated_action: IaaAction,
-    ) => `/iaa/${action}/${id}/${derivated_action}/`,
+    ) => `/iaa/${action}/${id}/derivate/?derivated_action=${derivated_action}`,
     executeAction: (action: IaaAction, id: string) => `/iaa/${action}/${id}`,
   },
   users: {
