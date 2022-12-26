@@ -77,6 +77,7 @@ export const Registration = () => {
                   type="text"
                   required
                   size="l"
+                  autoComplete="username"
                   disabled={isLoading}
                   width="full"
                   placeholder={t(
@@ -91,6 +92,7 @@ export const Registration = () => {
                   type="text"
                   required
                   size="l"
+                  autoComplete="email"
                   disabled={isLoading}
                   width="full"
                   placeholder={t(
@@ -136,6 +138,7 @@ export const Registration = () => {
                   type="phone"
                   required
                   size="l"
+                  autoComplete="tel"
                   width="full"
                   disabled={isLoading}
                   placeholder={t(

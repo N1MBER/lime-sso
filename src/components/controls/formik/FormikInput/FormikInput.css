@@ -63,11 +63,11 @@
       border-right: 1px solid var(--color-control-bg-border-default);
     }
 
-    & .country { 
+    & .country {
       & > .country-name {
         color: var(--color-typo-primary);
       }
-  
+
       & > span.dial-code {
         color: var(--color-typo-secondary) !important;
       }
@@ -81,20 +81,21 @@
       }
     }
 
-    & .selected-flag, & .selected-flag.open {
-      border-radius: var(--control-radius) 0 0 var(--control-radius) !important;
+    & .selected-flag,
+    & .selected-flag.open {
       background: var(--color-bg-secondary) !important;
+      border-radius: var(--control-radius) 0 0 var(--control-radius) !important;
     }
   }
 
   &-PhoneFormControl.form-control {
+    overflow: hidden;
     width: 100% !important;
     height: auto !important;
     color: var(--color-control-typo-default);
-    border-radius: var(--control-radius);
-    overflow: hidden;
     background: var(--color-control-bg-default) !important;
     border: none !important;
+    border-radius: var(--control-radius);
     font-family: var(--font-primary);
   }
 

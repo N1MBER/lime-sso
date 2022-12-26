@@ -64,6 +64,7 @@ export const Login = () => {
               name="username"
               type="text"
               size="l"
+              autoComplete="username"
               disabled={isLoading}
               width="full"
               placeholder={t('login.inputs.login.placeholder')?.toString()}

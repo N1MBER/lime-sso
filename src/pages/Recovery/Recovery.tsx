@@ -62,6 +62,7 @@ export const Recovery = () => {
               name="email"
               type="email"
               disabled={isLoading}
+              autoComplete="email"
               size="l"
               width="full"
               placeholder={t('recovery.inputs.email.placeholder')?.toString()}
