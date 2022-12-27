@@ -1,21 +1,34 @@
 import { useFlag } from '@consta/uikit/useFlag';
 import { useAtom } from '@reatom/npm-react';
-import { uuidAtom } from '##/atoms/uuid';
 import { executeIaaAction } from '##/api/actions/iaa';
 import { isStatusSuccess } from '##/utils/requests';
+import { iaaActionAtom } from '##/atoms/iaa';
+import { useUuid } from '##/hooks/useUuid';
+import { FormValues } from './useForm';
 
 export const useRequest = () => {
-  const [uuid] = useAtom(uuidAtom);
   const [isLoading, setIsLoading] = useFlag();
+  const [iaaAction] = useAtom(iaaActionAtom);
 
-  const onSubmit = async (email: string) => {
+  const { exchangeUuid, uuid } = useUuid();
+
+  const onSubmit = async (data: FormValues) => {
     try {
       setIsLoading.on();
-      const { data, status } = await executeIaaAction('change_password', uuid, {
-        email,
-      });
+      let id = uuid;
+      if (iaaAction !== 'emergency_change_password') {
+        const newUuid = await exchangeUuid(uuid, 'emergency_change_password');
+        if (typeof newUuid === 'string') {
+          id = newUuid;
+        }
+      }
+      const { data: response, status } = await executeIaaAction(
+        'emergency_change_password',
+        id,
+        data,
+      );
       if (isStatusSuccess(status)) {
-        console.log(data);
+        console.log(response);
       }
     } catch (e) {
       console.log(e);

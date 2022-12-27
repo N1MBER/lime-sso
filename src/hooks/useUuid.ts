@@ -6,19 +6,6 @@ import { IaaAction } from '##/types/iaa';
 import { iaaActionAtom } from '##/atoms/iaa';
 import { derivateIaaAction } from '##/api/actions/iaa';
 import { isStatusSuccess } from '##/utils/requests';
-import { AuthAction } from '##/types/common';
-
-const getIaaAction = (type: AuthAction): IaaAction => {
-  if (type === 'registration') return 'registration';
-  if (type === 'recovery') return 'emergency_change_password';
-  return 'authentication';
-};
-
-const getAuthAction = (path: string): AuthAction => {
-  if (path.includes('login')) return 'login';
-  if (path.includes('recovery')) return 'recovery';
-  return 'registration';
-};
 
 const getUuidFromPathname = (pathname: string) => {
   if (pathname.includes('login')) {
@@ -39,16 +26,17 @@ export const useUuid = () => {
     iaaActionAtom(ctx, value),
   );
 
-  const exchangeUuid = async (uuid: string, action: IaaAction) => {
-    try {
-      const { data, status } = await derivateIaaAction(iaaAction, uuid, action);
-      if (isStatusSuccess(status)) {
-        setUuid(data.id);
-        setIaaAction(action);
-      }
-    } catch (e) {
-      console.log(e);
+  const exchangeUuid = async (
+    uuid: string,
+    action: IaaAction,
+  ): Promise<string | undefined> => {
+    const { data, status } = await derivateIaaAction(iaaAction, uuid, action);
+    if (isStatusSuccess(status)) {
+      setUuid(data.id);
+      setIaaAction(action);
+      return data.id;
     }
+    return undefined;
   };
 
   useEffect(() => {
@@ -56,12 +44,8 @@ export const useUuid = () => {
     uuid && setUuid(uuid);
   }, [pathname]);
 
-  useEffect(() => {
-    if (uuid) {
-      const deerivated_action = getIaaAction(getAuthAction(pathname));
-      if (deerivated_action !== iaaAction && iaaAction) {
-        exchangeUuid(uuid, deerivated_action);
-      }
-    }
-  }, [uuid, pathname]);
+  return {
+    exchangeUuid,
+    uuid,
+  };
 };

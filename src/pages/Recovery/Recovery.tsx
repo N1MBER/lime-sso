@@ -40,7 +40,7 @@ export const Recovery = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
-        onSubmit={(values) => onSubmit(values.email ?? '')}
+        onSubmit={(values) => onSubmit(values)}
         validateOnBlur={false}
         validateOnChange={false}
         validateOnMount={false}
@@ -66,6 +66,17 @@ export const Recovery = () => {
               size="l"
               width="full"
               placeholder={t('recovery.inputs.email.placeholder')?.toString()}
+            />
+            <FormikInput
+              name="new_password"
+              type="password"
+              disabled={isLoading}
+              autoComplete="new-password"
+              size="l"
+              width="full"
+              placeholder={t(
+                'recovery.inputs.password.placeholder',
+              )?.toString()}
             />
             <Button
               size="l"

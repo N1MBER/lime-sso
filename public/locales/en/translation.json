@@ -58,6 +58,9 @@
     "inputs": {
       "email": {
         "placeholder": "Enter your email"
+      },
+      "password": {
+        "placeholder": "New password"
       }
     },
     "button": "Reset the password",

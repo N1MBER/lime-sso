@@ -58,6 +58,9 @@
     "inputs": {
       "email": {
         "placeholder": "Введите email"
+      },
+      "password": {
+        "placeholder": "Новый пароль"
       }
     },
     "button": "Сбросить пароль",
