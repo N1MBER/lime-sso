@@ -42,7 +42,7 @@ export const Login = () => {
     >
       <Formik
         initialValues={initialValues}
-        // validationSchema={schema}
+        validationSchema={schema}
         onSubmit={(values) => onSubmit(values)}
         validateOnBlur={false}
         validateOnChange={false}
