@@ -16,6 +16,11 @@
     max-height: 100%;
     background: none;
     border-radius: var(--space-l);
+
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &-Controls {
