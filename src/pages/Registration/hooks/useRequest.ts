@@ -17,7 +17,7 @@ export const useRequest = () => {
           username: values.username,
           password: values.password,
           email: values.email,
-          phone: values.phone,
+          phone: `+${values.phone}`,
         });
         if (isStatusSuccess(status)) {
           console.log(data);
