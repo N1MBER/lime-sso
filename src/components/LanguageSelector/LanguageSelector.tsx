@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Button } from '@consta/uikit/Button';
 import { IconType } from '@consta/icons/IconType';
 import { ContextMenu } from '@consta/uikit/ContextMenu';
-import { useAtom, useAction } from '@reatom/npm-react';
+import { useAtom } from '@reatom/npm-react';
 import { useFlag } from '@consta/uikit/useFlag';
 import { useBreakpoints } from '@consta/uikit/useBreakpoints';
 import { languageAtom } from '##/atoms/language';
@@ -35,11 +35,7 @@ export const LanguageSelector = () => {
 
   const { isDesktop } = useBreakpoints({ isDesktop: 800 });
 
-  const [language] = useAtom(languageAtom);
-
-  const setLanguage = useAction((ctx, value: Language) =>
-    languageAtom(ctx, value),
-  );
+  const [language, setLanguage] = useAtom(languageAtom);
 
   return (
     <>

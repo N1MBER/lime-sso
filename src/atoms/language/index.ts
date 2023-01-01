@@ -7,7 +7,9 @@ export const languageAtom = atom<Language>(Language.RU);
 
 const KEY = 'language';
 
-onUpdate(languageAtom, async (_ctx, value) => {
-  await i18n.changeLanguage(value);
-  localStorage.setItem(KEY, value);
-});
+onUpdate(languageAtom, (ctx, value) =>
+  ctx.schedule(async () => {
+    await i18n.changeLanguage(value);
+    localStorage.setItem(KEY, value);
+  }),
+);

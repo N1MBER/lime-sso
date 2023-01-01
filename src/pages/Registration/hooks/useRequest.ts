@@ -1,4 +1,4 @@
-import { useAtom } from '@reatom/npm-react';
+import { useCtx } from '@reatom/npm-react';
 import { useFlag } from '@consta/uikit/useFlag';
 import { FormValues } from './useForm';
 import { executeIaaAction } from '##/api/actions/iaa';
@@ -8,7 +8,7 @@ import { useUuid } from '##/hooks/useUuid';
 
 export const useRequest = () => {
   const [isLoading, setIsLoading] = useFlag();
-  const [iaaAction] = useAtom(iaaActionAtom);
+  const ctx = useCtx();
 
   const { exchangeUuid, uuid } = useUuid();
 
@@ -17,7 +17,7 @@ export const useRequest = () => {
       try {
         setIsLoading.on();
         let id = uuid;
-        if (iaaAction !== 'registration') {
+        if (ctx.get(iaaActionAtom) !== 'registration') {
           const newUuid = await exchangeUuid(uuid, 'registration');
           if (typeof newUuid === 'string') {
             id = newUuid;
