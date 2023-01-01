@@ -1,4 +1,4 @@
-import { useAtom, useAction } from '@reatom/npm-react';
+import { useAtom } from '@reatom/npm-react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { uuidAtom } from '##/atoms/uuid';
@@ -15,16 +15,10 @@ const getUuidFromPathname = (pathname: string) => {
 };
 
 export const useUuid = () => {
-  const [uuid] = useAtom(uuidAtom);
-  const [iaaAction] = useAtom(iaaActionAtom);
+  const [uuid, setUuid] = useAtom(uuidAtom);
+  const [iaaAction, setIaaAction] = useAtom(iaaActionAtom);
 
   const { pathname } = useLocation();
-
-  const setUuid = useAction((ctx, value: string) => uuidAtom(ctx, value));
-
-  const setIaaAction = useAction((ctx, value: IaaAction) =>
-    iaaActionAtom(ctx, value),
-  );
 
   const exchangeUuid = async (
     uuid: string,
